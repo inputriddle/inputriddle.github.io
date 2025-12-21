@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+    
+ <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  
+
+    <style>
+    body {
+         background-color: mintcream;
+    }
+    h1 {
+        text-align: center;
+        color: indianred;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .italic {
+        text-align: justify;
+        font-style: italic;
+        color: rgb(209, 153, 0);
+    }
+    .section2 {
+        margin: 15px;
+        padding: 15px;
+        border: 10px solid whitesmoke ;
+        border-radius: 7px;
+        background: yellowgreen;
+        width: 1000px;
+    }
+    .fade-in {
+    opacity: 0;
+    transition: opacity 2s ease; 
+    }
+    .fade-in.show {
+    opacity: 1;
+    }
+    
+    </style>
+ </head>
+
+ <body>
+
+    <h1>Siapakah Pelakunya???</h1>
+   
+    <div class="section">
+            <p1 class="italic">
+                    Note :
+                    Jawaban Menggunakan Huruf Besar diwal Nama (Zain).
+                </p1>
+            <input type="text" id="kata" placeholder="Siapa Yahhh...." onkeydown="if (event.key === 'Enter'){ cekKata(); }">
+            <button id="tombol" onclick="cekKata()">Cek</button>
+          </div>  
+            <p id="hasil"></p>
+            <p id="paragrafTambahan" class="fade-in" style="display: none;">
+                Faris menunggu waktu yang tepat. Ia mematikan CCTV lantai 12 selama 10 menit dengan skrip yang ia siapkan sebelumnya.<br /> Ia memakai kartu akses staf IT yang telah ia curi, lalu masuk ke kamar Tegar tanpa membuat suara. Ia membawa sarung tangan, hoodie, dan pisau kecil yang ia sembunyikan dalam tas laptop.<br /> Saat Tegar lengah, Faris mendekat dari belakang dan menutup mulutnya agar tak berteriak. Tegar meronta, tetapi Faris mendorongnya hingga terjatuh ke lantai. <br />Ia menusukkan pisau ke sisi tubuh Tegar—sekali, cepat, dan tepat di area yang mematikan namun tidak menimbulkan banyak suara.<br /> Prosesnya tidak lama. Tapi cukup lama untuk membuat Faris menatap tepat ke mata korban saat hayatnya perlahan padam.
+            </p>
+            <script>
+
+                let kesempatan = 3;
+                    function cekKata() {
+                        let input = document.getElementById("kata").value;
+                        let hasil = document.getElementById("hasil");
+                        let tombol = document.getElementById("tombol");
+                        let paragraf = document.getElementById("paragrafTambahan");
+
+                        if (input === "Faris") {
+                            document.getElementById("hasil").innerHTML = "Benar, Anda Pintar";
+                            hasil.style.color = "green";
+                            paragraf.style.display = "block";  
+                            setTimeout(() => {
+                             paragraf.classList.add("show");
+                        } , 10) } else {
+                            kesempatan--;
+                            document.getElementById("hasil").innerHTML = "Masih Salah Nih..";
+                            hasil.style.color = "red";
+                         if (kesempatan === 0) {
+                            hasil.innerHTML = "Kesempatan Habis Tombol Dikunci";
+                            tombol.disabled = true;
+                            tombol.style.cursor = "not-allowed";
+                            tombol.style.backgroundColor = "gray";
+                            hasil.style.color = "gray";
+                           }
+                        }
+                    }
+            </script>
+
+   
+ </body>
+</html>
